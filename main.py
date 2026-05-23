@@ -5,6 +5,7 @@ import numpy as np
 from scipy import stats
 import google.generativeai as genai
 import math
+import os
 
 app = FastAPI(title="PhysiData Lab API")
 
@@ -13,7 +14,7 @@ app.add_middleware(
 )
 
 # 你的 API Key (已為你保留)
-genai.configure(api_key="AIzaSyAWnz3xMEAYHXAEAfFo5YKC_EUcH_T5Y-w")
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
 def get_available_model():
     print("正在尋找可用的 AI 模型...")
